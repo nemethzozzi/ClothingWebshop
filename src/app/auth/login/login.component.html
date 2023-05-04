@@ -1,0 +1,46 @@
+<div class="login-page">
+    <form (ngSubmit)="submit()" #myForm="ngForm"
+        class="login-panel">
+        <h1 class="login-text">Login</h1>
+        <div class="form-field">
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" id="email"
+                    placeholder="Email Address" [(ngModel)]="form.email"
+                    name="email" #email="ngModel" [required]="true">
+                <mat-error *ngIf="email.invalid && (email.dirty || email.touched)">Email field must be valid</mat-error>
+            </mat-form-field>
+        </div>
+  
+        <div class="form-field">
+            <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" id="password"
+                    placeholder="Password" [(ngModel)]="form.password" 
+                    name="password" #password="ngModel" [required]="true">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">Password field must be valid</mat-error>
+            </mat-form-field>
+        </div> 
+        
+        <div class="form-field">
+            <button type="submit" [disabled]="myForm.form.invalid"
+                class="button">
+                <ng-container *ngIf="isLoading()">
+                    Loading...
+                </ng-container>
+                <ng-container *ngIf="!isLoading()">
+                    Submit
+                </ng-container>
+            </button>
+        </div>
+
+        <div class="text-center">
+            <p>Do not have an account?<a href="register"> Register Now! </a></p>
+        </div>
+
+    </form>
+  </div>
+

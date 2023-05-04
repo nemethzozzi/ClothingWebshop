@@ -1,0 +1,12 @@
+<mat-card class="item-card">
+  <div class="item-image-wrapper">
+    <img [src]="item.image" [alt]="item.name" class="item-image" />
+  </div>
+  <div class="item-details">
+    <mat-card-title class="item-title">{{ item.name | titlecase }}</mat-card-title>
+    <mat-card-subtitle class="item-price">{{ item.amount }} Ft</mat-card-subtitle>
+    <button class="add-to-cart-btn" *ngIf="!isInCart" (click)="addToCart()">Add to Cart</button>
+    <button class="add-to-cart-btn" *ngIf="isInCart" (click)="removeFromCart()">Remove from Cart</button>
+  </div>
+</mat-card>
+

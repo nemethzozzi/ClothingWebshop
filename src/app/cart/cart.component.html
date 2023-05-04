@@ -1,0 +1,28 @@
+<div class="cart-container" *ngIf="getCart().length > 0">
+  <div *ngFor="let item of getCart(); let i=index;" class="cart-item">
+    <img [src]="item.image" alt="{{ item.name }}" class="item-image">
+    <div>
+      <p class="item-name">{{ item.name }}</p>
+      <p class="item-amount">{{ item.amount }} Ft</p>     
+    </div>
+    <div class="item-size">
+      <mat-form-field appearance="fill">
+        <mat-label for="size">Size:</mat-label>
+        <mat-select name="size" [(ngModel)]="item.size">
+          <mat-option value="XS">XS</mat-option>
+          <mat-option value="S">S</mat-option>
+          <mat-option value="M">M</mat-option>
+          <mat-option value="L">L</mat-option>
+          <mat-option value="XL">XL</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <button mat-icon-button color="warn" (click)="deleteitem(i)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+  <p class="total-amount">Total amount: {{getTotalAmount()}} Ft</p>
+  <button (click)="order()" class="order-button">Order</button>
+</div>
+
+<div *ngIf="getCart().length == 0" class="no-items-message">No items in your cart</div>

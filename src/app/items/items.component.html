@@ -1,0 +1,8 @@
+<mat-card>
+  <mat-card-title class="text-center bigger-title">Clothes</mat-card-title>
+  <mat-card-content class="flex flex-wrap justify-center">
+    <ng-container *ngFor="let singleitem of items">
+      <app-item [item]="singleitem" class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-5 text-center"></app-item>
+    </ng-container>
+  </mat-card-content>
+</mat-card>

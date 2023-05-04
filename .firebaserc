@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ruhawebshopnz": {
+      "hosting": {
+        "Ruhawebshop": [
+          "ruhawebshopnz"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ruhawebshopnz"
+  }
+}
